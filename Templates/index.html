@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailored Reports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 20px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            color: #a8bab5;
+        }
+        .report {
+            margin-top: 30px;
+        }
+        .report p {
+            color: #555;
+            line-height: 1.5;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Specific style for the Generate Report button */
+        .generate-report-btn {
+            background-color: #a8bab5;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .generate-report-btn:hover {
+            background-color: #23e8b0; /* Hover color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generate Your Tailored Report</h1>
+
+        <!-- Form for collecting data -->
+        <form method="POST" action="/">
+            <label for="injury_time">How long ago was your injury?</label>
+            <select id="injury_time" name="injury_time" required>
+                <option value="Less than 3 months">Less than 3 months</option>
+                <option value="3 - 6 months">3 - 6 months</option>
+                <option value="12 months – 3 years">12 months – 3 years</option>
+            </select>
+
+            <label for="employment_status">Were you an employee or contractor at the time of injury?</label>
+            <select id="employment_status" name="employment_status" required>
+                <option value="Employee">Employee</option>
+                <option value="Contractor">Contractor</option>
+            </select>
+
+            <label for="injury_type">What type of injury did you sustain?</label>
+            <select id="injury_type" name="injury_type" required>
+                <option value="A physical injury">A physical injury</option>
+                <option value="A psychological injury">A psychological injury</option>
+                <option value="Both">Both</option>
+            </select>
+
+            <label for="pre_existing_condition">Do you have any pre-existing conditions?</label>
+            <select id="pre_existing_condition" name="pre_existing_condition" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+
+            <label for="training">What level of safety training was provided?</label>
+            <select id="training" name="training" required>
+                <option value="No training">No training</option>
+                <option value="Some training">Some training</option>
+                <option value="Extensive training">Extensive training</option>
+            </select>
+
+            <label for="location">Where do you live?</label>
+            <select id="location" name="location" required>
+                <option value="North Brisbane">North Brisbane</option>
+                <option value="South Brisbane">South Brisbane</option>
+                <option value="West Brisbane">West Brisbane</option>
+                <option value="East Brisbane">East Brisbane</option>
+                <option value="Moreton Bay">Moreton Bay</option>
+            </select>
+
+            <label for="insurance">Do you have insurance?</label>
+            <select id="insurance" name="insurance" required>
+                <option value="Not sure">Yes</option>
+                <option value="Not sure">No</option>
+                <option value="Not sure">Not sure</option>
+            </select>
+
+            <label for="age_bracket">What is your age bracket?</label>
+            <select id="age_bracket" name="age_bracket" required>
+                <option value="20 - 35">20 - 35</option>
+                <option value="35 - 45">35 - 45</option>
+                <option value="45 - 60">45 - 60</option>
+                <option value="60+">60+</option>
+            </select>
+
+            <input type="submit" value="Generate Report" class="generate-report-btn">
+        </form>
+
+        <!-- Report section -->
+        {% if report %}
+            <div class="report">
+                <h2>Your Tailored Report</h2>
+                <p>{{ report }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

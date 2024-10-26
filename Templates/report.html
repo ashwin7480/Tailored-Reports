@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+    <style>
+        body {
+            font-family: CoreSans, Sans-serif; /* Use the same font for consistency */
+            background-color: #f4f4f4; /* Optional: add a background color */
+            margin: 0; /* Remove default margin */
+            padding: 20px; /* Add some padding around the body */
+        }
+        .container {
+            max-width: 600px; /* Limit the width for better readability */
+            margin: 0 auto; /* Center the container */
+            padding: 20px; /* Add padding inside the container */
+            background-color: white; /* Set background color */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        .report {
+            white-space: pre-wrap; /* Preserves whitespace and wraps text */
+            color: #87888a; /* Text color for report */
+            line-height: 1.5; /* Increase line height for better readability */
+            text-indent: 0; /* Prevent text indentation */
+        }
+        h1 {
+            color: #23e8b0; /* Your title color */
+            text-align: center; /* Center the title */
+        }
+        .video-wrapper {
+            text-align: center; /* Center the video */
+            margin-bottom: 20px; /* Add space below the video */
+        }
+        iframe {
+            width: 100%; /* Make the video responsive */
+            max-width: 560px; /* Set a max-width for larger screens */
+            height: 315px; /* Maintain the 16:9 aspect ratio */
+            border: none; /* Remove the border */
+            border-radius: 10px; /* Optional: Rounded corners for a nice look */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        .button-container {
+            display: flex; /* Use Flexbox for alignment */
+            justify-content: space-evenly; /* Space buttons evenly */
+            margin-top: 20px; /* Space above buttons */
+        }
+        .button {
+            width: 180px; /* Set a fixed width for the buttons */
+            padding: 10px; /* Add some padding */
+            text-align: center; /* Center the text */
+            color: white; /* Button text color */
+            background-color: #23e8b0; /* Button background color */
+            border: none; /* Remove default border */
+            border-radius: 5px; /* Rounded corners */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px; /* Font size */
+        }
+        .button:hover {
+            opacity: 0.8; /* Change opacity on hover for effect */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Report</h1>
+
+        <!-- Embed YouTube Video -->
+        <div class="video-wrapper">
+            <iframe
+                src="https://www.youtube.com/embed/RGrk85zqc1g"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="report">
+            {{ report|safe }} <!-- Render the report data with safe HTML -->
+        </div>
+
+        <div class="button-container">
+            <a href="/" class="button">Go Back</a> <!-- Link to go back to the index page -->
+            <a href="https://crewlegal.com.au/contact-us/" class="button">Book Appointment</a> <!-- Link to contact page -->
+        </div>
+    </div>
+</body>
+</html>
